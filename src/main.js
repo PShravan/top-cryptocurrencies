@@ -7,17 +7,17 @@ Vue.config.productionTip = false
 Vue.use(Vuex)
 Vue.use(BootstrapVue)
 
+const store = new Vuex.Store({
+    state: {
+        count: 0
+    },
+    mutations: {
+        increment (state) {
+        state.count++
+        }
+    }
+})
 new Vue({
-  render: h => h(App)
+  render: h => h(App),
+  store,
 }).$mount('#app')
-
-// const store = new Vuex.Store({
-//     state: {
-//         count: 0
-//     },
-//     mutations: {
-//         increment (state) {
-//         state.count++
-//         }
-//     }
-// })

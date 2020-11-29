@@ -6,50 +6,21 @@
       <h3 class="text-danger">{{ error }}</h3>
     </div>
     <div v-else-if="currencies" class="mt-5">
-        <h4 class="text-success mb-4">
-          Found {{ currencies.length }} cryptocurrencies
-        </h4>
-        <div id="currencies">
-          <!-- list of repositories found -->
-          <ol>
-            <li v-for="(currency, index) in displayedCurrencies" :key="index">
-              <h6
-                data-toggle="tooltip"
-                data-placement="right"
-                :title="currency.description"
-                v-on:click="toggleCurrencyDetail(currency.id, index)"
-                class="currency-title"
-              >
-                {{ currency.name }}
-              </h6>
+        <Table :items="currencies" />
               <!-- <CryptoDetail class="currency_description" :id="'currency_desc_' + index" :currency="currency" /> -->
-            </li>
-          </ol>
-        </div>
-        <!-- <NavPagination :page="page" :pages="pages" /> -->
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item">
-              <button type="button" class="page-link" v-if="page != 1" @click="page--"> Previous </button>
-            </li>
-            <li class="page-item">
-              <button type="button" class="page-link" v-for="(pageNumber,index) in pages.slice(page-1, page+5)" :key="index" @click="page = pageNumber"> {{pageNumber}} </button>
-            </li>
-            <li class="page-item">
-              <button type="button" @click="page++" v-if="page < pages.length" class="page-link"> Next </button>
-            </li>
-          </ul>
-        </nav>
+
     </div>
     <div v-else class="spinner-border" role="status">
       <span class="sr-only">Loading...</span>
     </div>
+     
   </div>
 </template>
 
 <script>
 // import CryptoDetail from "./CryptoDetail.vue";
 // import NavPagination from "./NavPagination.vue";
+import Table from './Table.vue';
 
 export default {
   name: "Home",
@@ -68,6 +39,7 @@ export default {
   components: {
     // CryptoDetail,
     // NavPagination
+    Table,
   },
   methods: {
     async load_currencies() {
