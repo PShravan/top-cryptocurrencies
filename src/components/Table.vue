@@ -36,8 +36,11 @@
 
     <!-- Main table element -->
     <b-table
+      class="my-4"
       show-empty
-      small
+      bordered
+      hover
+      head-variant="dark"
       stacked="md"
       :items="items"
       :fields="fields"
@@ -53,6 +56,10 @@
       <!-- <template #cell(photo)="row">
           <b-img :src="row.value.first" fluid alt="coin image"></b-img>
       </template> -->
+      <template #cell(label)="row">
+        <b-link :to="{ name: 'currency_detail', params: { id: row.value.key } }">{{ row.value.label }}</b-link>
+        <!-- <router-link to="{ name: 'currency_detail', params: { id: row.value.key } }">{{ row.value.label }}</router-link> -->
+      </template>
 
       <template #row-details="row">
         <b-card>
@@ -79,7 +86,7 @@
           { key: 'name', label: 'Currency Name', sortable: true, sortDirection: 'desc' },
           { key: 'numberOfMarkets', label: '# Markets', sortable: true, sortDirection: 'desc' },
           { key: 'numberOfExchanges', label: '# Exchanges', sortable: true, sortDirection: 'desc' },
-          { key: 'circulatingSupply', label: 'circulating supply', sortable: true, sortDirection: 'desc' },
+          { key: 'circulatingSupply', label: 'Supply circulating', sortable: true, sortDirection: 'desc' },
         ],
         totalRows: 1,
         currentPage: 1,

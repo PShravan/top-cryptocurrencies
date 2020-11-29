@@ -1,5 +1,5 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h5>This page is an frontend application written in Vue, displaying the top 100 crypto currencies and their details.</h5>
   </div>
 </template>

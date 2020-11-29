@@ -10,11 +10,16 @@ Vue.use(BootstrapVue)
 
 const store = new Vuex.Store({
     state: {
-        count: 0
+        currencies: []
     },
     mutations: {
-        increment (state) {
-        state.count++
+        set_data (state, data) {
+            state.currencies = data
+        }
+    },
+    actions: {
+        set_data ({ commit }, data) {
+            commit('set_data', data)
         }
     }
 })
