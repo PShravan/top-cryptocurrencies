@@ -1,4 +1,5 @@
 # crypto-currencies
+This page is an frontend application written in Vue, displaying the top 100 crypto currencies and their details.
 
 ## Project setup
 ```

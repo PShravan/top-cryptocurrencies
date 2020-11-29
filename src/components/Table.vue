@@ -53,21 +53,6 @@
       :sort-direction="sortDirection"
       @filtered="onFiltered"
     >
-      <!-- <template #cell(photo)="row">
-          <b-img :src="row.value.first" fluid alt="coin image"></b-img>
-      </template> -->
-      <template #cell(label)="row">
-        <b-link :to="{ name: 'currency_detail', params: { id: row.value.key } }">{{ row.value.label }}</b-link>
-        <!-- <router-link to="{ name: 'currency_detail', params: { id: row.value.key } }">{{ row.value.label }}</router-link> -->
-      </template>
-
-      <template #row-details="row">
-        <b-card>
-          <ul>
-            <li v-for="(value, key) in row.item" :key="key">{{ key }}: {{ value }}</li>
-          </ul>
-        </b-card>
-      </template>
     </b-table>
   </b-container>
 </template>
@@ -81,12 +66,12 @@
     data() {
       return {
         fields: [
-        //   { key: 'iconUrl', label: 'Icon'},
           { key: 'rank', label: 'Rank', sortable: true, sortDirection: 'desc' },
           { key: 'name', label: 'Currency Name', sortable: true, sortDirection: 'desc' },
           { key: 'numberOfMarkets', label: '# Markets', sortable: true, sortDirection: 'desc' },
           { key: 'numberOfExchanges', label: '# Exchanges', sortable: true, sortDirection: 'desc' },
           { key: 'circulatingSupply', label: 'Supply circulating', sortable: true, sortDirection: 'desc' },
+          { key: 'websiteUrl', label: 'link'},
         ],
         totalRows: 1,
         currentPage: 1,

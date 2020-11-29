@@ -7,9 +7,9 @@
             </b-col>
             <b-col md="6">
                 <b-card-body :title="currency.name">
-                <b-card-text>
-                    {{ currency.description }}
-                </b-card-text>
+                    <b-card-text>
+                        {{ currency.description }}
+                    </b-card-text>
                 </b-card-body>
             </b-col>
             </b-row>
@@ -29,9 +29,12 @@ export default {
     },
     computed: {
         currency(){
-            console.log(this.$store.state.currencies);
-            return this.$store.state.currencies[this.currency_id]
+            let data = this.$store.state.currencies;
+            return data[this.currency_id]
         }
     },
+    created() {
+        this.$route.query.paramName
+    }
 }
 </script>

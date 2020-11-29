@@ -48,7 +48,7 @@ export default {
         //   data: json_data['data']['coins']
         // })
         this.error = null;
-        document.title = "cryptocurrencies";
+        document.title = "crypto currencies";
       }
     }
   },
