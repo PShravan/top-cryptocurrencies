@@ -53,6 +53,12 @@
       :sort-direction="sortDirection"
       @filtered="onFiltered"
     >
+     <template #cell(iconUrl)="data">
+        <b-img-lazy :src="data.item.iconUrl" fluid alt="currency image" height=30 width=30></b-img-lazy>
+      </template>
+    <template #cell(name)="data">
+      <b-link :href="data.item.websiteUrl" target="_blank">{{ data.item.name }}</b-link>
+      </template>
     </b-table>
   </b-container>
 </template>
@@ -67,11 +73,11 @@
       return {
         fields: [
           { key: 'rank', label: 'Rank', sortable: true, sortDirection: 'desc' },
+          { key: 'iconUrl', label: 'image', image: true},
           { key: 'name', label: 'Currency Name', sortable: true, sortDirection: 'desc' },
-          { key: 'numberOfMarkets', label: '# Markets', sortable: true, sortDirection: 'desc' },
-          { key: 'numberOfExchanges', label: '# Exchanges', sortable: true, sortDirection: 'desc' },
-          { key: 'circulatingSupply', label: 'Supply circulating', sortable: true, sortDirection: 'desc' },
-          { key: 'websiteUrl', label: 'link'},
+          { key: 'symbol', label: 'Symbol', sortable: true, sortDirection: 'desc' },
+          { key: 'price', label: 'Price', sortable: true, sortDirection: 'desc' },
+          { key: 'change', label: 'Price change', sortable: true, sortDirection: 'desc' },
         ],
         totalRows: 1,
         currentPage: 1,
