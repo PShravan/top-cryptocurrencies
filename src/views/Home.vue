@@ -7,8 +7,7 @@
     </div>
     <div v-else-if="currencies" class="mt-5">
         <Table :items="currencies" />
-              <!-- <CryptoDetail class="currency_description" :id="'currency_desc_' + index" :currency="currency" /> -->
-
+  <!-- <CurrencyDetail class="currency_description" :id="'currency_desc_' + index" :currency="currency" /> -->
     </div>
     <div v-else class="spinner-border" role="status">
       <span class="sr-only">Loading...</span>
@@ -18,9 +17,8 @@
 </template>
 
 <script>
-// import CryptoDetail from "./CryptoDetail.vue";
-// import NavPagination from "./NavPagination.vue";
-import Table from './Table.vue';
+// import CurrencyDetail from "@/components/CurrencyDetail.vue";
+import Table from '@/components/Table.vue';
 
 export default {
   name: "Home",
@@ -37,8 +35,7 @@ export default {
     };
   },
   components: {
-    // CryptoDetail,
-    // NavPagination
+    // CurrencyDetail,
     Table,
   },
   methods: {
